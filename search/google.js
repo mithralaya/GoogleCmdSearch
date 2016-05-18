@@ -16,7 +16,14 @@ exports.index = function (query) {
       results = $('#ires').html();
       $('.g').each(function(i, element){
         W.for(element.children, function(index, value, children){
-          console.log(value.children);
+          W.for(value.children, function(i, v, value){
+            if(v.name === "a") {
+              console.log(v.attribs.href.replace("/url?q="));
+            }
+            if(v.name === "span") {
+              console.log(v.children.data);
+            }
+          });
         });
       });
     }
